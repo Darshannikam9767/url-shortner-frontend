@@ -5,7 +5,7 @@ import ShortenUrl from './ShortenUrl'
 
 const Form = () => {
 
-    const [url, setUrl] = useState("")
+    const [url, setUrl] = useState("https://")
     const [showEmptyError, setShowEmptyError] = useState(false)
     const [shortUrlRecieved, setShortUrlRecieved] = useState(false)
     const [showShortUrl, setShowShortUrl] = useState(false)
@@ -14,6 +14,13 @@ const Form = () => {
         if (!url) return setShowEmptyError(true);
 
         const data = await axios.post("http://localhost:3000/api/create",{url})
+        console.log(data.data.short_url);
+        
+        if(data){
+            setShortUrlRecieved(data.data.short_url)
+            setShowShortUrl(true)
+        }
+        
     }
     return (
         <div className='h-full w-full  flex items-center justify-center'>
@@ -31,7 +38,7 @@ const Form = () => {
                     <button className='bg-blue-600 rounded-xl p-2 mt-4 font-medium text-white tracking-wide shadow-2xl shadow-gray-900 hover:bg-blue-500 hover:cursor-pointer hover:scale-96 transition-all duration-200'>Shorten URL</button>
                 </form>
                 {showEmptyError && (<InputEmpty />)}
-                {showShortUrl && (<ShortenUrl />)}
+                {showShortUrl && (<ShortenUrl ShortUrl={shortUrlRecieved} />)}
             </div>
         </div>
     )
