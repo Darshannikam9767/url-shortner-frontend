@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import axios from "axios"
 import InputEmpty from './InputEmpty'
 import ShortenUrl from './ShortenUrl'
+import { createShortUrl } from '../apis/shortUrl.api'
 
 const Form = () => {
 
-    const [url, setUrl] = useState("https://")
+    const [url, setUrl] = useState("")
     const [showEmptyError, setShowEmptyError] = useState(false)
     const [shortUrlRecieved, setShortUrlRecieved] = useState(false)
     const [showShortUrl, setShowShortUrl] = useState(false)
@@ -13,18 +13,18 @@ const Form = () => {
         e.preventDefault()
         if (!url) return setShowEmptyError(true);
 
-        const data = await axios.post("http://localhost:3000/api/create",{url})
-        console.log(data.data.short_url);
+        const short_url = await createShortUrl(url)
+        // console.log(short_url);
         
-        if(data){
-            setShortUrlRecieved(data.data.short_url)
+        if(short_url){
+            setShortUrlRecieved(short_url)
             setShowShortUrl(true)
         }
         
     }
     return (
         <div className='h-full w-full  flex items-center justify-center'>
-            <div className=' bg-white flex flex-col items-center gap-5 w-90 p-8 rounded-2xl shadow-xl shadow-gray-400'>
+            <div className=' bg-white flex flex-col items-center gap-5 w-95 p-8 rounded-2xl shadow-xl shadow-gray-400'>
                 <h3 className=' text-2xl font-bold tracking-wide'>URL Shortner</h3>
                 <form onSubmit={formHandler} className='flex flex-col gap-2 w-full'>
                     <label className='text-sm tracking-wide' htmlFor="url">
