@@ -1,9 +1,10 @@
 import React from 'react'
+import Form from '../components/Form'
 
 const Dashboard = () => {
   return (
     <div className='bg-gray-200 h-screen w-full'>
-        <h1>DashBoard</h1>
+        <Form />
     </div>
   )
 }

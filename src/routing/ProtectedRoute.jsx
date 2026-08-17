@@ -1,14 +1,12 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useCheckAuth } from '../utils/helper'
+import { Navigate, replace, useNavigate } from 'react-router-dom'
 
 const ProtectedRoute = ({ children }) => {
 
-    const token = cookieStore.get("accessToken")
-    
-    if (!token) return (<Navigate to={"/Auth/Login"} replace />)
+    if(!useCheckAuth()) return <Navigate to={"/Auth"} replace />
 
-        console.log(token);
-        
     return children
 }
 
