@@ -14,7 +14,6 @@ const Form = () => {
         if (!url) return setShowEmptyError(true);
 
         const short_url = await createShortUrl(url)
-        // console.log(short_url);
         
         if(short_url){
             setShortUrlRecieved(short_url)
@@ -24,7 +23,7 @@ const Form = () => {
     }
     return (
         <div className='h-full w-full  flex items-center justify-center'>
-            <div className=' bg-white flex flex-col items-center gap-5 max-w-sm w-full p-8 rounded-2xl shadow-xl shadow-gray-400'>
+            <div className=' bg-white flex flex-col items-center gap-5 max-w-md w-full p-8 rounded-3xl shadow-xl shadow-gray-400'>
                 <h3 className=' text-2xl font-bold tracking-wide'>URL Shortner</h3>
                 <form onSubmit={formHandler} className='flex flex-col gap-2 w-full'>
                     <label className='text-sm tracking-wide' htmlFor="url">
