@@ -2,21 +2,26 @@ import axios from "axios"
 import axiosInstance from "../utils/axiosInstance"
 
 export const loginUser = async (email, password) => {
-    const {data} = await axiosInstance.post("/auth/login",{email,password})
+    const { data } = await axiosInstance.post("/auth/login", { email, password })
     return data
 }
 
 export const registerUser = async (name, email, password) => {
-    const {data} = await axiosInstance.post("/auth/register",{name,email,password})
+    const { data } = await axiosInstance.post("/auth/register", { name, email, password })
     return data
 }
 
 export const logoutUser = async () => {
-    const {data} = await axiosInstance.get("/auth/logout")
+    const { data } = await axiosInstance.get("/auth/logout")
     return data
 }
 
 export const getCurrentUser = async () => {
-    const {data} = await axiosInstance.get("/auth/me")
+    const { data } = await axiosInstance.get("/auth/me")
+    return data
+}
+
+export const getAllUserUrls = async () => {
+    const { data } = await axiosInstance.post("/user/urls")
     return data
 }

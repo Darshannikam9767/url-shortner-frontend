@@ -33,9 +33,6 @@ const App = () => {
 
   if (!checked) {
     return <div className='bg-gray-200 h-screen w-full flex items-center justify-center'>
-      <div className='bg-white flex flex-col items-center gap-5 w-full max-w-sm p-8 rounded-2xl shadow-xl shadow-gray-400'>
-        <h3 className='text-3xl font-bold tracking-wider animate-pulse'>Loading ...</h3>
-      </div>
     </div>
   }
   return (
