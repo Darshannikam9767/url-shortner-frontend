@@ -23,7 +23,7 @@ const UrlList = () => {
     }
 
     return (
-        <div className='min-h-[50vh] pt-10 w-full  flex flex-col justify-center items-center'>
+        <div className='min-h-[50vh] pt-1 w-full  flex flex-col justify-center items-center'>
 
             <div className='  px-7 py-4 flex w-full max-w-6xl justify-between items-center tracking-wide  mb-3'>
                 <h3 className=' text-4xl font-semibold pl-10'>Your <span className='text-blue-600'>URLs</span></h3>

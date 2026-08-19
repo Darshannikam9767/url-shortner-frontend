@@ -4,10 +4,12 @@ import ShortenUrl from './ShortenUrl'
 import { createShortUrl } from '../apis/shortUrl.api'
 import { useCheckAuth } from '../utils/helper'
 import { useQueryClient } from '@tanstack/react-query'
+import { useLocation } from 'react-router-dom'
 
 const Form = () => {
 
     const queryClient = useQueryClient()
+    const location = useLocation()
 
     const [url, setUrl] = useState("")
     const [customUrl, setCustomUrl] = useState("")
@@ -93,7 +95,7 @@ const Form = () => {
                         placeholder='https://example.com'
                     />
 
-                    {useCheckAuth() && (
+                    {(location.pathname === "/Dashboard" && useCheckAuth()) && (
                         <>
                             <label
                                 className='text-sm tracking-wide'
