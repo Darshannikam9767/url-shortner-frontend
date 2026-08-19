@@ -45,7 +45,7 @@ const UrlList = () => {
                 )}
 
                 {!isLoading && urls.length > 0 && (
-                    urls.map((url) => (
+                    urls.reverse().map((url) => (
 
                         < UrlCard
                             ogUrl={url.full_url}
