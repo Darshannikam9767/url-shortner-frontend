@@ -12,7 +12,7 @@ export const registerUser = async (name, email, password) => {
 }
 
 export const logoutUser = async () => {
-    const { data } = await axiosInstance.get("/auth/logout")
+    const { data } = await axiosInstance.post("/auth/logout")
     return data
 }
 

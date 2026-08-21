@@ -67,7 +67,7 @@ const navigate = useNavigate()
 
 
                     <button disabled={isLoading} className='bg-blue-600 rounded-xl p-2 mt-4 font-medium text-white tracking-wide shadow-2xl shadow-gray-900 hover:bg-blue-500 cursor-pointer hover:scale-96 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60'>{isLoading ? "Signing In..." : "Sign In"}</button>
-                    <p className='cursor-pointer tracking-wide mt-2 text-[18px]'>Don't have an account? <Link to={"/Auth/Register"} className=' text-blue-700 font-semibold hover:text-blue-500  transition-colors duration-150'>Register</Link></p>
+                    <Link to={"/Auth/Register"} className='cursor-pointer tracking-wide mt-2 text-[18px]'>Don't have an account? <span className=' text-blue-700 font-semibold hover:text-blue-500  transition-colors duration-150'>Register </span></Link>
                 </form>
             </div>
         </div>

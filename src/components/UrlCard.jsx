@@ -47,7 +47,7 @@ const UrlCard = ({ ogUrl, shortUrl, count }) => {
                     target='_blank'
                     rel={"noopener noreferrer"}
                     
-                    className='text-blue-600 font-semibold truncate hover:text-blue-500 transition-all duration-200'>{completeShortUrl}</a>
+                    className=' block text-blue-600 font-semibold truncate hover:text-blue-500 transition-all duration-200'>{completeShortUrl}</a>
                 </div>
 
                 <div className=' sm:px-3 flex flex-col items-center'>

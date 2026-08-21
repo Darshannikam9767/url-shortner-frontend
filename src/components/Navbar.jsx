@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { logout } from '../store/slice/authSlice'
+import { logoutUser } from '../apis/user.api'
 
 const Navbar = () => {
 
@@ -10,9 +11,17 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
 
-    const handleLogout = () => {
-        dispatch(logout())
-        navigate("/Auth")
+    const handleLogout =async () => {
+
+        try{
+            const {data}= await logoutUser()
+            console.log("logout data = ", data);
+            
+            dispatch(logout())
+            navigate("/Auth",{replace : true})
+        }catch(error){
+            console.log("Logout failed :",error)
+        }
     }
 
     return (
@@ -46,6 +55,7 @@ const Navbar = () => {
 
                 {location.pathname === "/Dashboard" && (
                      <Link
+                     onClick={handleLogout}
                         to="/Auth"
                         className="inline-block text-[17px] bg-red-600 rounded-full px-5 py-2 font-medium text-white tracking-wide shadow-lg shadow-red-600/30 hover:bg-red-500 hover:scale-95 transition-all duration-200"
                     >

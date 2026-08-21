@@ -73,7 +73,7 @@ const Form = () => {
                         className='text-sm tracking-wide'
                         htmlFor="url"
                     >
-                        Enter your URL
+                        Enter or paste your URL
                     </label>
 
                     <input
